@@ -1,0 +1,149 @@
+---
+title: "TP 6 : Texte et expressions régulières"
+author: "Zackarie Nouchet"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+# Partie A : Fonctions de texte et premières regex
+
+## A1
+
+**Prédictions (écrites avant d'exécuter) :**
+
+1. `nchar("Été 2026 ")` : 9. Le « É » compte pour un seul caractère et l'espace final est compté aussi.
+2. `str_sub("Conservatoire", -5)` : `"toire"` (les 5 derniers caractères).
+3. `str_detect(c("a.b", "axb", "ab"), "a.b")` : `TRUE TRUE FALSE`, car le `.` veut dire « n'importe quel caractère », il en faut donc exactement un entre `a` et `b`.
+4. `str_detect(c("a.b", "axb", "ab"), "a\\.b")` : `TRUE FALSE FALSE`, car ici le point est échappé et désigne un vrai point.
+5. `str_count("banana", "an")` : 2.
+6. `str_replace("aaa", "a", "b")` : `"baa"`, car `str_replace()` ne remplace que la première occurrence.
+7. `str_extract("Tel : 06 12 34 56 78", "\\d+")` : `"06"`, car l'extraction s'arrête au premier espace et ne garde que la première correspondance.
+8. `str_split("a,b,,c", ",")` : une liste contenant `c("a", "b", "", "c")`, avec une chaîne vide entre les deux virgules.
+
+```{r a1}
+nchar("Été 2026 ")
+str_sub("Conservatoire", -5)
+str_detect(c("a.b", "axb", "ab"), "a.b")
+str_detect(c("a.b", "axb", "ab"), "a\\.b")
+str_count("banana", "an")
+str_replace("aaa", "a", "b")
+str_extract("Tel : 06 12 34 56 78", "\\d+")
+str_split("a,b,,c", ",")
+```
+
+Les résultats correspondent aux prédictions. Les pièges sont l'espace final dans le `nchar()` (on attend facilement 8), le `.` non échappé qui accepte n'importe quel caractère, et `str_split()` qui renvoie une **liste** (avec une chaîne vide) et non un simple vecteur.
+
+## A2
+
+```{r a2-donnees}
+villes <- c("      paris", "SAINT-ÉTIENNE ", "aix-en-provence", "Le                 Mans", "nîmes")
+```
+
+### a.
+
+```{r a2a}
+villes_propres <- villes |>
+  str_squish() |>
+  str_to_title()
+villes_propres
+```
+
+Le résultat pour « aix-en-provence » n'est pas correct : on obtient `"Aix-En-Provence"` au lieu de `"Aix-en-Provence"`. `str_to_title()` considère le tiret comme une séparation de mots et met une majuscule à « en ». On peut le corriger à la main :
+
+```{r a2a-correction}
+villes_propres <- str_replace_all(villes_propres, "-En-", "-en-")
+villes_propres
+```
+
+### b.
+
+```{r a2b}
+str_c(str_pad(villes_propres, width = 20, side = "left"),
+      " (", str_length(villes_propres), ")")
+```
+
+### c.
+
+Pour enlever les accents, on remplace chaque lettre accentuée par sa lettre de base avec `str_replace_all()` et un vecteur nommé (la fonction `stringi::stri_trans_general(x, "Latin-ASCII")` ferait la même chose, mais elle ne fait pas partie de stringr).
+
+```{r a2c}
+villes_propres |>
+  str_to_upper() |>
+  str_replace_all(c("[ÉÈÊË]" = "E", "[ÀÂÄ]" = "A", "[ÎÏ]" = "I",
+                    "[ÔÖ]" = "O", "[ÙÛÜ]" = "U", "Ç" = "C")) |>
+  str_replace_all(" ", "-")
+```
+
+## A3
+
+```{r a3-donnees}
+codes <- c("FR-2024-00123", "FR-2025-04567", "DE-2025-00089", "fr-2023-1", "FR2025-00999",
+           "IT-2024-12345", "FR-2026-00042", "ES-2025-0071")
+```
+
+### a.
+
+```{r a3a}
+regex_code <- "^([A-Z]{2})-(\\d{4})-(\\d{5})$"
+codes_valides <- str_detect(codes, regex_code)
+codes[!codes_valides]
+```
+
+Il y a `r sum(!codes_valides)` codes invalides : `fr-2023-1` (pays en minuscules et numéro trop court), `FR2025-00999` (tiret manquant) et `ES-2025-0071` (numéro sur 4 chiffres seulement).
+
+### b.
+
+```{r a3b}
+morceaux <- str_match(codes[codes_valides], regex_code)
+codes_tbl <- tibble(pays   = morceaux[, 2],
+                    annee  = as.integer(morceaux[, 3]),
+                    numero = morceaux[, 4])
+codes_tbl
+```
+
+### c.
+
+```{r a3c}
+codes_tbl |> count(pays, sort = TRUE)
+```
+
+La France a le plus de codes valides (`r sum(codes_tbl$pays == "FR")`). L'Allemagne et l'Italie en ont un chacune, et l'Espagne aucun (son seul code est invalide).
+
+## A4
+
+```{r a4-donnees}
+x <- c("rapport.pdf", "photo.PNG", "notes.pdf.bak", "data_pdf")
+```
+
+**1. Fichiers PDF.** `".pdf"` : le point n'est pas échappé (il veut dire « n'importe quel caractère ») et le motif n'est pas ancré en fin de chaîne. Il trouve donc aussi `notes.pdf.bak` et `data_pdf`. Il faut échapper le point et ancrer avec `$` (on peut aussi ignorer la casse pour accepter `.PDF`).
+
+```{r a4-1}
+str_subset(x, ".pdf")                                 # avant
+str_subset(x, regex("\\.pdf$", ignore_case = TRUE))   # corrigé
+```
+
+**2. Contient un nombre ?** `"^\\d+$"` exige que **toute** la chaîne soit composée de chiffres, alors qu'on veut seulement savoir si elle en contient. Il faut retirer les ancres.
+
+```{r a4-2}
+str_detect("prix : 1500 €", "^\\d+$")   # avant
+str_detect("prix : 1500 €", "\\d+")     # corrigé
+```
+
+**3.** Cette instruction est en fait correcte : les trois groupes capturent l'année, le mois et le jour, et `"\\3/\\2/\\1"` les remet dans l'ordre jj/mm/aaaa. On peut seulement préciser le motif pour n'accepter qu'une vraie date ISO.
+
+```{r a4-3}
+str_replace("2026-01-15", "(\\d+)-(\\d+)-(\\d+)", "\\3/\\2/\\1")
+str_replace("2026-01-15", "^(\\d{4})-(\\d{2})-(\\d{2})$", "\\3/\\2/\\1")  # plus strict
+```
+
+**4. Début « photo », toute casse.** Les regex sont sensibles à la casse par défaut, donc `"Photo"` n'est pas reconnu. Il faut utiliser `regex(..., ignore_case = TRUE)`.
+
+```{r a4-4}
+str_detect(c("Photo", "photo"), "^photo")                                # avant
+str_detect(c("Photo", "photo"), regex("^photo", ignore_case = TRUE))     # corrigé
+```

@@ -1,0 +1,400 @@
+2026-01-15 00:19:03 [WARN] user=elias ip=192.168.1.251 action=view code=401 duree=159ms
+2026-01-15 00:23:49 [WARN] user=jade ip=192.168.1.184 action=download fichier=notes.xlsx code=404 duree=221ms
+2026-01-15 00:34:14 [ERROR] user=theo ip=192.168.1.203 action=download fichier=photo.png code=404 duree=2720ms msg="Mémoire insuffisante"
+2026-01-15 00:39:04 [INFO] user=awa ip=203.0.113.42 action=search code=200 duree=218ms
+2026-01-15 00:42:08 [INFO] user=awa ip=192.168.1.142 action=search code=200 duree=167ms
+2026-01-15 01:10:44 [INFO] user=gael ip=192.168.1.42 action=upload fichier=photo.png code=200 duree=534ms
+2026-01-15 01:11:08 [WARN] user=theo ip=192.168.2.148 action=view code=429 duree=608ms
+2026-01-15 01:12:23 [INFO] user=theo ip=192.168.1.136 action=view code=200 duree=129ms
+2026-01-15 01:20:15 [ERROR] user=jade ip=192.168.1.21 action=login code=500 duree=555ms msg="Timeout base de données"
+2026-01-15 01:41:09 [INFO] user=- ip=192.168.1.84 action=view code=200 duree=206ms
+2026-01-15 01:51:14 [INFO] user=jade ip=192.168.10.65 action=download fichier=photo.png code=200 duree=115ms
+2026-01-15 01:51:42 [ERROR] user=pauline ip=192.168.1.179 action=download fichier=archive.zip code=503 duree=790ms msg="Timeout base de données"
+2026-01-15 01:54:02 [INFO] user=pauline ip=192.168.1.138 action=logout code=200 duree=44ms
+2026-01-15 01:54:28 [INFO] user=theo ip=192.168.2.251 action=view code=200 duree=53ms
+2026-01-15 02:08:57 [INFO] user=clemence ip=203.0.113.7 action=download fichier=photo.png code=200 duree=83ms
+2026-01-15 02:15:03 [ERROR] user=jade ip=192.168.1.48 action=download fichier=rapport_2025.pdf code=500 duree=655ms msg="Timeout base de données"
+2026-01-15 02:15:28 [INFO] user=jade ip=192.168.2.75 action=view code=200 duree=190ms
+2026-01-15 02:30:38 [ERROR] user=chen ip=192.168.1.85 action=download fichier=notes.xlsx code=503 duree=330ms msg="Timeout base de données"
+2026-01-15 02:41:23 [INFO] user=jade ip=192.168.10.237 action=login code=200 duree=273ms
+2026-01-15 02:50:41 [INFO] user=rokhaya ip=192.168.10.215 action=search code=200 duree=55ms
+2026-01-15 03:06:01 [WARN] user=gael ip=192.168.10.147 action=search code=401 duree=66ms
+2026-01-15 03:21:45 [INFO] user=jade ip=192.168.1.227 action=search code=200 duree=283ms
+2026-01-15 03:28:12 [ERROR] user=jade ip=192.168.10.230 action=search code=500 duree=740ms msg="Connexion refusée"
+2026-01-15 03:28:36 [ERROR] user=rokhaya ip=192.168.1.254 action=search code=404 duree=490ms msg="Mémoire insuffisante"
+2026-01-15 04:04:48 [INFO] user=clemence ip=192.168.1.198 action=search code=200 duree=311ms
+2026-01-15 04:07:23 [ERROR] user=dina ip=192.168.2.22 action=search code=503 duree=290ms msg="Fichier introuvable"
+2026-01-15 04:11:46 [INFO] user=clemence ip=192.168.1.100 action=view code=200 duree=155ms
+2026-01-15 04:34:32 [INFO] user=clemence ip=192.168.1.110 action=view code=200 duree=218ms
+2026-01-15 04:52:27 [INFO] user=- ip=192.168.1.9 action=search code=200 duree=324ms
+2026-01-15 04:54:07 [INFO] user=awa ip=192.168.2.132 action=view code=200 duree=53ms
+2026-01-15 04:54:30 [INFO] user=clemence ip=192.168.1.106 action=login code=200 duree=122ms
+2026-01-15 05:29:34 [WARN] user=valerie ip=192.168.10.185 action=search code=404 duree=142ms
+2026-01-15 05:38:44 [ERROR] user=jade ip=192.168.1.18 action=login code=503 duree=455ms msg="Fichier introuvable"
+2026-01-15 05:40:45 [WARN] user=pauline ip=192.168.10.178 action=login code=401 duree=175ms
+2026-01-15 05:45:04 [INFO] user=awa ip=192.168.1.152 action=view code=200 duree=486ms
+2026-01-15 05:48:28 [WARN] user=- ip=192.168.10.213 action=login code=429 duree=515ms
+2026-01-15 06:01:12 [INFO] user=clemence ip=192.168.1.5 action=search code=200 duree=262ms
+2026-01-15 06:09:58 [WARN] user=quentin ip=192.168.1.35 action=search code=404 duree=250ms
+2026-01-15 06:12:36 [INFO] user=elias ip=192.168.10.35 action=login code=200 duree=95ms
+2026-01-15 06:16:28 [INFO] user=gael ip=192.168.2.36 action=logout code=200 duree=229ms
+2026-01-15 06:25:39 [INFO] user=jade ip=192.168.1.252 action=download fichier=cours_R.html code=200 duree=754ms
+2026-01-15 06:30:49 [INFO] user=gael ip=192.168.1.64 action=logout code=200 duree=169ms
+2026-01-15 06:53:32 [ERROR] user=valerie ip=192.168.1.130 action=view code=500 duree=3650ms msg="Connexion refusée"
+2026-01-15 06:57:44 [INFO] user=dina ip=192.168.10.241 action=search code=200 duree=293ms
+2026-01-15 07:08:31 [INFO] user=clemence ip=192.168.10.57 action=login code=200 duree=286ms
+2026-01-15 07:11:10 [INFO] user=quentin ip=192.168.1.5 action=login code=200 duree=194ms
+2026-01-15 07:17:42 [INFO] user=wassim ip=192.168.1.126 action=view code=200 duree=161ms
+2026-01-15 07:35:12 [INFO] user=quentin ip=192.168.1.71 action=view code=200 duree=83ms
+2026-01-15 07:35:52 [INFO] user=sami ip=203.0.113.7 action=search code=200 duree=216ms
+2026-01-15 07:46:25 [INFO] user=clemence ip=192.168.2.14 action=download fichier=rapport_2025.pdf code=200 duree=83ms
+2026-01-15 07:50:09 [ERROR] user=elias ip=192.168.1.63 action=download fichier=data.csv code=503 duree=1240ms msg="Timeout base de données"
+2026-01-15 07:53:12 [INFO] user=sami ip=192.168.2.102 action=download fichier=photo.png code=200 duree=131ms
+2026-01-15 08:07:11 [WARN] user=valerie ip=192.168.1.42 action=view code=429 duree=36ms
+2026-01-15 08:21:01 [INFO] user=clemence ip=192.168.1.64 action=view code=200 duree=235ms
+2026-01-15 08:21:34 [INFO] user=djibril ip=192.168.2.127 action=download fichier=notes.xlsx code=200 duree=382ms
+2026-01-15 08:30:00 [INFO] user=wassim ip=192.168.1.73 action=download fichier=photo.png code=200 duree=796ms
+2026-01-15 08:32:24 [INFO] user=moussa ip=203.0.113.42 action=login code=200 duree=90ms
+2026-01-15 08:40:53 [INFO] user=theo ip=192.168.2.85 action=search code=200 duree=103ms
+2026-01-15 08:45:36 [WARN] user=awa ip=192.168.10.250 action=logout code=404 duree=221ms
+2026-01-15 09:09:31 [INFO] user=clemence ip=192.168.1.46 action=search code=200 duree=181ms
+2026-01-15 09:30:09 [INFO] user=sami ip=192.168.1.45 action=view code=200 duree=136ms
+2026-01-15 09:32:12 [INFO] user=jade ip=192.168.1.165 action=login code=200 duree=116ms
+2026-01-15 09:42:04 [INFO] user=djibril ip=192.168.1.26 action=download fichier=archive.zip code=200 duree=250ms
+2026-01-15 10:03:43 [INFO] user=rokhaya ip=192.168.1.127 action=logout code=200 duree=73ms
+2026-01-15 10:04:50 [INFO] user=sami ip=192.168.1.135 action=view code=200 duree=175ms
+2026-01-15 10:08:26 [INFO] user=valerie ip=192.168.1.73 action=login code=200 duree=120ms
+2026-01-15 10:15:16 [INFO] user=clemence ip=192.168.2.89 action=download fichier=photo.png code=200 duree=162ms
+2026-01-15 10:25:11 [ERROR] user=awa ip=192.168.1.248 action=view code=500 duree=2155ms msg="Mémoire insuffisante"
+2026-01-15 10:26:02 [INFO] user=valerie ip=192.168.10.189 action=login code=200 duree=219ms
+2026-01-15 10:26:10 [INFO] user=valerie ip=192.168.10.26 action=login code=200 duree=230ms
+2026-01-15 10:29:29 [INFO] user=gael ip=192.168.1.238 action=download fichier=archive.zip code=200 duree=150ms
+2026-01-15 10:34:15 [INFO] user=wassim ip=192.168.10.137 action=download fichier=photo.png code=200 duree=307ms
+2026-01-15 10:42:15 [INFO] user=rokhaya ip=192.168.1.206 action=login code=200 duree=359ms
+2026-01-15 11:09:28 [INFO] user=clemence ip=203.0.113.7 action=download fichier=cours_R.html code=200 duree=124ms
+2026-01-15 11:10:07 [INFO] user=chen ip=192.168.1.12 action=login code=200 duree=521ms
+2026-01-15 11:14:02 [ERROR] user=valerie ip=192.168.1.15 action=login code=500 duree=450ms msg="Timeout base de données"
+2026-01-15 11:14:43 [ERROR] user=moussa ip=192.168.1.40 action=view code=404 duree=2005ms msg="Connexion refusée"
+2026-01-15 11:18:20 [INFO] user=valerie ip=192.168.1.184 action=download fichier=photo.png code=200 duree=111ms
+2026-01-15 11:31:48 [INFO] user=jade ip=192.168.10.185 action=view code=200 duree=542ms
+2026-01-15 12:12:30 [INFO] user=- ip=192.168.1.80 action=view code=200 duree=170ms
+2026-01-15 12:27:44 [WARN] user=awa ip=192.168.2.50 action=login code=401 duree=164ms
+2026-01-15 12:30:46 [INFO] user=moussa ip=192.168.1.41 action=login code=200 duree=112ms
+2026-01-15 12:39:45 [INFO] user=theo ip=192.168.10.62 action=login code=200 duree=135ms
+2026-01-15 13:06:43 [INFO] user=moussa ip=192.168.1.24 action=view code=200 duree=156ms
+2026-01-15 13:37:05 [INFO] user=wassim ip=192.168.2.229 action=download fichier=rapport_2025.pdf code=200 duree=147ms
+2026-01-15 13:54:19 [INFO] user=jade ip=192.168.1.189 action=logout code=200 duree=74ms
+2026-01-15 14:06:02 [INFO] user=theo ip=192.168.1.87 action=view code=200 duree=132ms
+2026-01-15 14:08:06 [WARN] user=theo ip=192.168.1.213 action=search code=429 duree=437ms
+2026-01-15 14:14:34 [INFO] user=sami ip=192.168.1.124 action=search code=200 duree=303ms
+2026-01-15 14:19:32 [INFO] user=quentin ip=192.168.1.204 action=download fichier=cours_R.html code=200 duree=239ms
+2026-01-15 14:21:59 [INFO] user=quentin ip=192.168.2.35 action=view code=200 duree=197ms
+2026-01-15 14:32:24 [INFO] user=rokhaya ip=192.168.10.108 action=logout code=200 duree=207ms
+2026-01-15 14:39:38 [INFO] user=wassim ip=192.168.1.174 action=logout code=200 duree=565ms
+2026-01-15 14:40:40 [INFO] user=sami ip=192.168.1.24 action=logout code=200 duree=240ms
+2026-01-15 14:41:55 [INFO] user=clemence ip=192.168.1.154 action=view code=200 duree=215ms
+2026-01-15 14:52:50 [INFO] user=pauline ip=192.168.1.185 action=logout code=200 duree=383ms
+2026-01-15 14:55:18 [INFO] user=pauline ip=192.168.1.48 action=view code=200 duree=205ms
+2026-01-15 14:58:07 [INFO] user=- ip=192.168.10.239 action=view code=200 duree=65ms
+2026-01-15 14:59:58 [INFO] user=awa ip=192.168.1.33 action=login code=200 duree=222ms
+2026-01-15 15:03:34 [INFO] user=awa ip=192.168.10.104 action=login code=200 duree=233ms
+2026-01-15 15:13:43 [INFO] user=valerie ip=192.168.1.149 action=view code=200 duree=352ms
+2026-01-15 15:27:41 [INFO] user=valerie ip=192.168.1.214 action=logout code=200 duree=304ms
+2026-01-15 15:33:55 [INFO] user=clemence ip=192.168.1.138 action=view code=200 duree=150ms
+2026-01-15 15:36:58 [INFO] user=sami ip=192.168.1.139 action=view code=200 duree=70ms
+2026-01-15 15:53:58 [WARN] user=pauline ip=192.168.1.172 action=view code=401 duree=351ms
+2026-01-15 16:46:59 [INFO] user=elias ip=192.168.1.219 action=logout code=200 duree=234ms
+2026-01-15 17:03:05 [INFO] user=pauline ip=192.168.10.60 action=login code=200 duree=279ms
+2026-01-15 17:14:25 [INFO] user=chen ip=203.0.113.42 action=view code=200 duree=267ms
+2026-01-15 17:21:22 [INFO] user=clemence ip=203.0.113.7 action=view code=200 duree=126ms
+2026-01-15 17:35:41 [INFO] user=quentin ip=192.168.10.105 action=search code=200 duree=88ms
+2026-01-15 17:40:58 [INFO] user=rokhaya ip=192.168.10.11 action=download fichier=rapport_2025.pdf code=200 duree=521ms
+2026-01-15 17:51:47 [INFO] user=awa ip=192.168.10.175 action=logout code=200 duree=307ms
+2026-01-15 18:48:37 [INFO] user=elias ip=192.168.1.19 action=login code=200 duree=444ms
+2026-01-15 18:50:40 [INFO] user=valerie ip=192.168.10.108 action=search code=200 duree=1091ms
+2026-01-15 19:04:31 [WARN] user=dina ip=192.168.1.2 action=download fichier=notes.xlsx code=401 duree=263ms
+2026-01-15 19:19:57 [INFO] user=sami ip=192.168.1.197 action=view code=200 duree=299ms
+2026-01-15 19:44:49 [INFO] user=elias ip=192.168.1.3 action=search code=200 duree=55ms
+2026-01-15 19:52:59 [INFO] user=valerie ip=192.168.1.143 action=view code=200 duree=156ms
+2026-01-15 20:01:38 [WARN] user=clemence ip=192.168.1.108 action=download fichier=data.csv code=404 duree=104ms
+2026-01-15 20:22:41 [INFO] user=chen ip=203.0.113.7 action=logout code=200 duree=72ms
+2026-01-15 20:23:18 [INFO] user=chen ip=192.168.2.32 action=view code=200 duree=222ms
+2026-01-15 20:26:57 [INFO] user=chen ip=192.168.10.216 action=logout code=200 duree=18ms
+2026-01-15 21:06:55 [WARN] user=wassim ip=192.168.10.29 action=search code=404 duree=60ms
+2026-01-15 21:41:15 [INFO] user=awa ip=192.168.2.185 action=search code=200 duree=276ms
+2026-01-15 22:01:30 [INFO] user=sami ip=192.168.10.51 action=upload fichier=photo.png code=200 duree=302ms
+2026-01-15 22:08:29 [INFO] user=- ip=192.168.2.205 action=logout code=200 duree=136ms
+2026-01-15 22:16:07 [INFO] user=pauline ip=192.168.2.157 action=search code=200 duree=155ms
+2026-01-15 22:17:07 [INFO] user=pauline ip=192.168.2.169 action=download fichier=archive.zip code=200 duree=115ms
+2026-01-15 22:40:56 [INFO] user=rokhaya ip=192.168.1.63 action=login code=200 duree=239ms
+2026-01-15 22:44:19 [INFO] user=awa ip=192.168.1.199 action=logout code=200 duree=36ms
+2026-01-15 23:13:00 [INFO] user=quentin ip=192.168.2.220 action=logout code=200 duree=226ms
+2026-01-15 23:17:33 [WARN] user=moussa ip=192.168.1.251 action=search code=404 duree=115ms
+2026-01-15 23:51:48 [ERROR] user=rokhaya ip=192.168.2.35 action=view code=503 duree=580ms msg="Connexion refusée"
+2026-01-16 00:17:03 [INFO] user=pauline ip=192.168.1.191 action=download fichier=notes.xlsx code=200 duree=82ms
+2026-01-16 00:24:37 [INFO] user=wassim ip=192.168.1.248 action=login code=200 duree=116ms
+2026-01-16 00:32:02 [INFO] user=elias ip=192.168.1.168 action=view code=200 duree=135ms
+2026-01-16 00:32:09 [INFO] user=jade ip=192.168.10.211 action=view code=200 duree=43ms
+2026-01-16 00:50:19 [INFO] user=awa ip=192.168.1.45 action=download fichier=data.csv code=200 duree=34ms
+2026-01-16 00:51:07 [INFO] user=awa ip=192.168.10.163 action=download fichier=data.csv code=200 duree=240ms
+2026-01-16 01:07:27 [INFO] user=rokhaya ip=192.168.2.88 action=login code=200 duree=142ms
+2026-01-16 01:35:57 [INFO] user=wassim ip=192.168.1.30 action=view code=200 duree=360ms
+2026-01-16 01:39:46 [INFO] user=moussa ip=192.168.1.42 action=download fichier=data.csv code=200 duree=140ms
+2026-01-16 01:49:23 [INFO] user=jade ip=203.0.113.7 action=login code=200 duree=321ms
+2026-01-16 01:55:08 [ERROR] user=djibril ip=192.168.1.202 action=search code=500 duree=465ms msg="Connexion refusée"
+2026-01-16 02:05:12 [INFO] user=djibril ip=192.168.1.112 action=search code=200 duree=80ms
+2026-01-16 02:42:41 [INFO] user=sami ip=192.168.10.58 action=view code=200 duree=57ms
+2026-01-16 02:43:20 [INFO] user=valerie ip=192.168.1.117 action=view code=200 duree=232ms
+2026-01-16 03:09:16 [INFO] user=sami ip=192.168.10.200 action=search code=200 duree=124ms
+2026-01-16 03:10:18 [INFO] user=awa ip=192.168.10.242 action=download fichier=rapport_2025.pdf code=200 duree=112ms
+2026-01-16 03:12:25 [ERROR] user=clemence ip=192.168.1.26 action=download fichier=notes.xlsx code=503 duree=1510ms msg="Mémoire insuffisante"
+2026-01-16 03:13:48 [INFO] user=pauline ip=192.168.10.47 action=logout code=200 duree=220ms
+2026-01-16 03:29:01 [INFO] user=awa ip=192.168.1.171 action=login code=200 duree=652ms
+2026-01-16 03:29:09 [WARN] user=quentin ip=192.168.1.157 action=logout code=401 duree=237ms
+2026-01-16 03:42:42 [INFO] user=dina ip=192.168.2.137 action=login code=200 duree=105ms
+2026-01-16 03:51:36 [INFO] user=awa ip=192.168.2.127 action=download fichier=rapport_2025.pdf code=200 duree=135ms
+2026-01-16 04:02:25 [INFO] user=clemence ip=203.0.113.7 action=search code=200 duree=118ms
+2026-01-16 04:12:42 [INFO] user=valerie ip=192.168.1.85 action=search code=200 duree=153ms
+2026-01-16 04:28:50 [WARN] user=clemence ip=192.168.10.215 action=search code=401 duree=330ms
+2026-01-16 04:29:55 [INFO] user=awa ip=192.168.1.177 action=login code=200 duree=98ms
+2026-01-16 04:37:18 [INFO] user=dina ip=192.168.1.65 action=view code=200 duree=115ms
+2026-01-16 04:58:17 [INFO] user=elias ip=192.168.1.241 action=view code=200 duree=96ms
+2026-01-16 05:08:14 [INFO] user=rokhaya ip=192.168.1.191 action=login code=200 duree=354ms
+2026-01-16 05:20:09 [INFO] user=- ip=192.168.1.195 action=logout code=200 duree=162ms
+2026-01-16 05:23:33 [WARN] user=rokhaya ip=192.168.1.38 action=view code=429 duree=172ms
+2026-01-16 05:34:37 [ERROR] user=chen ip=192.168.1.8 action=view code=500 duree=1800ms msg="Connexion refusée"
+2026-01-16 06:24:44 [INFO] user=gael ip=192.168.1.198 action=logout code=200 duree=184ms
+2026-01-16 06:36:51 [INFO] user=wassim ip=192.168.2.152 action=upload fichier=rapport_2025.pdf code=200 duree=222ms
+2026-01-16 06:55:19 [INFO] user=awa ip=192.168.10.92 action=search code=200 duree=145ms
+2026-01-16 07:08:41 [INFO] user=jade ip=192.168.2.194 action=search code=200 duree=84ms
+2026-01-16 07:41:33 [ERROR] user=gael ip=192.168.1.168 action=upload fichier=notes.xlsx code=503 duree=470ms msg="Connexion refusée"
+2026-01-16 07:48:09 [INFO] user=elias ip=192.168.1.235 action=download fichier=cours_R.html code=200 duree=249ms
+2026-01-16 07:50:25 [INFO] user=jade ip=192.168.1.204 action=search code=200 duree=83ms
+2026-01-16 08:01:48 [INFO] user=dina ip=192.168.1.74 action=search code=200 duree=516ms
+2026-01-16 08:26:30 [INFO] user=wassim ip=192.168.2.204 action=view code=200 duree=123ms
+2026-01-16 08:27:27 [WARN] user=awa ip=192.168.10.253 action=login code=404 duree=56ms
+2026-01-16 08:33:22 [INFO] user=rokhaya ip=192.168.1.96 action=download fichier=rapport_2025.pdf code=200 duree=53ms
+2026-01-16 08:37:09 [INFO] user=wassim ip=192.168.1.180 action=download fichier=data.csv code=200 duree=251ms
+2026-01-16 08:41:42 [INFO] user=theo ip=192.168.1.14 action=logout code=200 duree=730ms
+2026-01-16 08:58:09 [INFO] user=gael ip=203.0.113.7 action=upload fichier=cours_R.html code=200 duree=442ms
+2026-01-16 09:14:47 [INFO] user=jade ip=192.168.1.112 action=logout code=200 duree=72ms
+2026-01-16 09:25:05 [INFO] user=pauline ip=192.168.1.145 action=login code=200 duree=1179ms
+2026-01-16 09:36:03 [INFO] user=wassim ip=192.168.1.184 action=login code=200 duree=821ms
+2026-01-16 09:50:31 [INFO] user=quentin ip=192.168.2.42 action=search code=200 duree=247ms
+2026-01-16 09:57:08 [INFO] user=valerie ip=192.168.1.240 action=view code=200 duree=185ms
+2026-01-16 10:03:52 [INFO] user=moussa ip=192.168.1.148 action=view code=200 duree=104ms
+2026-01-16 10:05:11 [INFO] user=gael ip=192.168.2.84 action=logout code=200 duree=187ms
+2026-01-16 10:17:23 [INFO] user=moussa ip=192.168.1.68 action=download fichier=cours_R.html code=200 duree=186ms
+2026-01-16 10:24:23 [INFO] user=dina ip=203.0.113.7 action=login code=200 duree=70ms
+2026-01-16 10:46:31 [INFO] user=rokhaya ip=192.168.10.36 action=view code=200 duree=114ms
+2026-01-16 10:48:45 [INFO] user=rokhaya ip=192.168.2.126 action=login code=200 duree=100ms
+2026-01-16 10:58:30 [INFO] user=pauline ip=192.168.1.224 action=logout code=200 duree=81ms
+2026-01-16 11:05:14 [ERROR] user=valerie ip=192.168.1.103 action=login code=503 duree=4260ms msg="Fichier introuvable"
+2026-01-16 11:27:26 [INFO] user=clemence ip=192.168.1.196 action=view code=200 duree=273ms
+2026-01-16 11:49:13 [INFO] user=- ip=192.168.2.225 action=download fichier=photo.png code=200 duree=143ms
+2026-01-16 12:09:53 [ERROR] user=- ip=192.168.1.135 action=search code=503 duree=405ms msg="Timeout base de données"
+2026-01-16 12:33:01 [WARN] user=pauline ip=192.168.2.97 action=login code=401 duree=277ms
+2026-01-16 12:38:58 [INFO] user=moussa ip=192.168.1.252 action=view code=200 duree=235ms
+2026-01-16 12:46:17 [INFO] user=elias ip=192.168.10.96 action=logout code=200 duree=407ms
+2026-01-16 12:59:21 [INFO] user=awa ip=192.168.10.16 action=upload fichier=archive.zip code=200 duree=86ms
+2026-01-16 13:21:30 [INFO] user=moussa ip=192.168.1.147 action=search code=200 duree=43ms
+2026-01-16 13:25:16 [WARN] user=dina ip=192.168.10.61 action=logout code=429 duree=577ms
+2026-01-16 13:25:54 [INFO] user=chen ip=192.168.10.86 action=search code=200 duree=39ms
+2026-01-16 13:37:22 [INFO] user=djibril ip=192.168.1.50 action=view code=200 duree=122ms
+2026-01-16 13:38:57 [WARN] user=valerie ip=192.168.10.135 action=logout code=429 duree=27ms
+2026-01-16 13:39:22 [INFO] user=rokhaya ip=192.168.1.224 action=search code=200 duree=151ms
+2026-01-16 13:43:13 [INFO] user=valerie ip=192.168.1.27 action=logout code=200 duree=135ms
+2026-01-16 13:48:25 [INFO] user=wassim ip=192.168.2.48 action=search code=200 duree=140ms
+2026-01-16 13:57:53 [INFO] user=awa ip=192.168.2.49 action=view code=200 duree=240ms
+2026-01-16 14:02:10 [INFO] user=clemence ip=192.168.1.206 action=search code=200 duree=197ms
+2026-01-16 14:10:57 [ERROR] user=- ip=192.168.1.226 action=logout code=404 duree=1875ms msg="Fichier introuvable"
+2026-01-16 14:11:36 [WARN] user=- ip=192.168.1.13 action=logout code=429 duree=163ms
+2026-01-16 14:15:24 [INFO] user=gael ip=192.168.2.221 action=search code=200 duree=171ms
+2026-01-16 14:27:25 [INFO] user=clemence ip=192.168.10.22 action=login code=200 duree=95ms
+2026-01-16 14:30:34 [ERROR] user=wassim ip=192.168.1.46 action=download fichier=photo.png code=503 duree=905ms msg="Mémoire insuffisante"
+2026-01-16 14:34:50 [INFO] user=rokhaya ip=192.168.10.130 action=login code=200 duree=162ms
+2026-01-16 14:49:20 [INFO] user=pauline ip=192.168.1.65 action=search code=200 duree=244ms
+2026-01-16 14:54:07 [INFO] user=pauline ip=192.168.2.180 action=download fichier=rapport_2025.pdf code=200 duree=167ms
+2026-01-16 14:54:53 [INFO] user=quentin ip=192.168.1.245 action=login code=200 duree=58ms
+2026-01-16 14:57:21 [WARN] user=moussa ip=192.168.1.244 action=view code=404 duree=309ms
+2026-01-16 15:21:32 [INFO] user=elias ip=203.0.113.7 action=view code=200 duree=216ms
+2026-01-16 15:22:05 [ERROR] user=rokhaya ip=192.168.10.28 action=logout code=404 duree=995ms msg="Timeout base de données"
+2026-01-16 15:35:36 [INFO] user=rokhaya ip=192.168.1.184 action=download fichier=photo.png code=200 duree=173ms
+2026-01-16 15:49:39 [INFO] user=chen ip=192.168.1.86 action=search code=200 duree=241ms
+2026-01-16 15:52:54 [INFO] user=awa ip=192.168.10.157 action=download fichier=data.csv code=200 duree=175ms
+2026-01-16 15:58:56 [ERROR] user=wassim ip=192.168.1.149 action=download fichier=notes.xlsx code=404 duree=1615ms msg="Timeout base de données"
+2026-01-16 16:03:49 [WARN] user=wassim ip=192.168.2.98 action=logout code=404 duree=64ms
+2026-01-16 16:04:22 [INFO] user=gael ip=192.168.1.76 action=view code=200 duree=173ms
+2026-01-16 16:17:15 [ERROR] user=clemence ip=192.168.10.205 action=view code=500 duree=935ms msg="Fichier introuvable"
+2026-01-16 16:31:17 [INFO] user=chen ip=192.168.1.191 action=search code=200 duree=144ms
+2026-01-16 17:01:01 [INFO] user=pauline ip=192.168.2.242 action=download fichier=notes.xlsx code=200 duree=59ms
+2026-01-16 17:08:12 [INFO] user=- ip=192.168.1.12 action=view code=200 duree=567ms
+2026-01-16 17:20:09 [INFO] user=- ip=192.168.1.154 action=search code=200 duree=508ms
+2026-01-16 18:33:49 [INFO] user=clemence ip=192.168.10.93 action=view code=200 duree=45ms
+2026-01-16 18:34:17 [INFO] user=valerie ip=192.168.1.13 action=login code=200 duree=61ms
+2026-01-16 18:40:53 [INFO] user=valerie ip=203.0.113.7 action=download fichier=cours_R.html code=200 duree=293ms
+2026-01-16 19:01:03 [INFO] user=pauline ip=192.168.1.18 action=view code=200 duree=714ms
+2026-01-16 19:14:07 [INFO] user=wassim ip=192.168.1.240 action=login code=200 duree=420ms
+2026-01-16 19:15:02 [INFO] user=awa ip=192.168.1.246 action=download fichier=archive.zip code=200 duree=311ms
+2026-01-16 19:17:58 [INFO] user=awa ip=192.168.1.35 action=view code=200 duree=127ms
+2026-01-16 19:25:13 [INFO] user=moussa ip=192.168.1.106 action=view code=200 duree=157ms
+2026-01-16 19:25:56 [INFO] user=rokhaya ip=203.0.113.7 action=logout code=200 duree=894ms
+2026-01-16 19:31:16 [INFO] user=rokhaya ip=192.168.10.203 action=upload fichier=data.csv code=200 duree=55ms
+2026-01-16 19:32:21 [ERROR] user=wassim ip=192.168.1.197 action=logout code=404 duree=1075ms msg="Timeout base de données"
+2026-01-16 19:45:19 [WARN] user=clemence ip=192.168.1.176 action=view code=429 duree=72ms
+2026-01-16 20:22:05 [INFO] user=valerie ip=192.168.1.119 action=logout code=200 duree=430ms
+2026-01-16 20:47:38 [INFO] user=wassim ip=192.168.10.175 action=login code=200 duree=395ms
+2026-01-16 20:54:57 [WARN] user=valerie ip=192.168.1.60 action=search code=429 duree=978ms
+2026-01-16 21:19:23 [INFO] user=awa ip=192.168.2.251 action=login code=200 duree=114ms
+2026-01-16 22:06:38 [INFO] user=jade ip=192.168.1.210 action=search code=200 duree=112ms
+2026-01-16 22:52:38 [INFO] user=jade ip=192.168.2.195 action=login code=200 duree=39ms
+2026-01-16 22:53:48 [INFO] user=gael ip=192.168.1.45 action=download fichier=data.csv code=200 duree=174ms
+2026-01-16 23:13:37 [INFO] user=chen ip=192.168.10.173 action=view code=200 duree=69ms
+2026-01-16 23:17:28 [WARN] user=clemence ip=192.168.2.156 action=view code=429 duree=358ms
+2026-01-16 23:43:58 [INFO] user=chen ip=192.168.2.194 action=search code=200 duree=63ms
+2026-01-17 00:12:18 [ERROR] user=dina ip=192.168.1.171 action=search code=500 duree=505ms msg="Mémoire insuffisante"
+2026-01-17 00:13:49 [INFO] user=valerie ip=192.168.1.183 action=logout code=200 duree=177ms
+2026-01-17 00:31:44 [INFO] user=jade ip=203.0.113.7 action=download fichier=rapport_2025.pdf code=200 duree=101ms
+2026-01-17 00:32:53 [ERROR] user=moussa ip=192.168.1.244 action=search code=404 duree=430ms msg="Timeout base de données"
+2026-01-17 00:36:01 [WARN] user=wassim ip=192.168.1.111 action=download fichier=notes.xlsx code=429 duree=271ms
+2026-01-17 00:38:12 [ERROR] user=rokhaya ip=192.168.1.117 action=download fichier=notes.xlsx code=500 duree=670ms msg="Mémoire insuffisante"
+2026-01-17 00:50:03 [INFO] user=moussa ip=192.168.10.159 action=login code=200 duree=307ms
+2026-01-17 01:09:07 [INFO] user=wassim ip=192.168.1.59 action=upload fichier=photo.png code=200 duree=617ms
+2026-01-17 01:15:03 [INFO] user=jade ip=192.168.2.65 action=view code=200 duree=612ms
+2026-01-17 01:19:42 [INFO] user=djibril ip=192.168.1.250 action=logout code=200 duree=135ms
+2026-01-17 01:33:01 [INFO] user=awa ip=192.168.1.182 action=search code=200 duree=587ms
+2026-01-17 01:35:37 [INFO] user=clemence ip=192.168.1.71 action=search code=200 duree=23ms
+2026-01-17 01:44:15 [INFO] user=quentin ip=192.168.2.153 action=login code=200 duree=74ms
+2026-01-17 02:06:50 [INFO] user=clemence ip=192.168.1.243 action=upload fichier=cours_R.html code=200 duree=103ms
+2026-01-17 02:08:51 [INFO] user=- ip=192.168.10.72 action=login code=200 duree=252ms
+2026-01-17 02:14:46 [INFO] user=rokhaya ip=192.168.1.249 action=logout code=200 duree=365ms
+2026-01-17 02:19:47 [INFO] user=chen ip=203.0.113.7 action=view code=200 duree=221ms
+2026-01-17 02:20:09 [WARN] user=clemence ip=192.168.1.11 action=upload fichier=notes.xlsx code=429 duree=272ms
+2026-01-17 02:30:34 [WARN] user=awa ip=192.168.1.224 action=download fichier=photo.png code=404 duree=148ms
+2026-01-17 02:34:22 [INFO] user=rokhaya ip=192.168.1.118 action=login code=200 duree=407ms
+2026-01-17 02:42:17 [INFO] user=awa ip=192.168.1.77 action=view code=200 duree=76ms
+2026-01-17 02:42:59 [INFO] user=sami ip=192.168.2.73 action=download fichier=photo.png code=200 duree=161ms
+2026-01-17 02:49:57 [ERROR] user=jade ip=192.168.1.74 action=download fichier=data.csv code=404 duree=390ms msg="Mémoire insuffisante"
+2026-01-17 03:00:20 [INFO] user=gael ip=192.168.10.169 action=download fichier=photo.png code=200 duree=254ms
+2026-01-17 03:12:56 [INFO] user=rokhaya ip=192.168.1.9 action=view code=200 duree=70ms
+2026-01-17 03:17:36 [INFO] user=rokhaya ip=192.168.1.247 action=logout code=200 duree=95ms
+2026-01-17 03:18:12 [INFO] user=- ip=192.168.1.3 action=view code=200 duree=176ms
+2026-01-17 03:31:46 [WARN] user=valerie ip=192.168.1.76 action=view code=404 duree=196ms
+2026-01-17 03:42:35 [INFO] user=jade ip=192.168.10.171 action=view code=200 duree=108ms
+2026-01-17 03:54:14 [INFO] user=elias ip=192.168.1.133 action=search code=200 duree=239ms
+2026-01-17 04:01:34 [INFO] user=elias ip=192.168.1.164 action=download fichier=archive.zip code=200 duree=171ms
+2026-01-17 04:02:11 [INFO] user=valerie ip=192.168.1.176 action=upload fichier=photo.png code=200 duree=257ms
+2026-01-17 04:12:22 [INFO] user=clemence ip=203.0.113.7 action=upload fichier=data.csv code=200 duree=539ms
+2026-01-17 04:13:59 [INFO] user=djibril ip=192.168.1.67 action=login code=200 duree=200ms
+2026-01-17 04:17:40 [INFO] user=sami ip=192.168.1.60 action=search code=200 duree=155ms
+2026-01-17 04:35:02 [INFO] user=pauline ip=192.168.2.237 action=logout code=200 duree=217ms
+2026-01-17 04:35:43 [INFO] user=wassim ip=192.168.1.75 action=login code=200 duree=25ms
+2026-01-17 04:40:25 [INFO] user=quentin ip=192.168.1.198 action=download fichier=notes.xlsx code=200 duree=178ms
+2026-01-17 04:48:01 [INFO] user=quentin ip=203.0.113.42 action=logout code=200 duree=79ms
+2026-01-17 04:59:41 [INFO] user=jade ip=192.168.1.155 action=login code=200 duree=323ms
+2026-01-17 05:32:10 [INFO] user=awa ip=192.168.1.174 action=login code=200 duree=616ms
+2026-01-17 06:04:42 [INFO] user=awa ip=192.168.2.226 action=search code=200 duree=103ms
+2026-01-17 06:14:20 [INFO] user=clemence ip=203.0.113.7 action=login code=200 duree=127ms
+2026-01-17 06:36:39 [INFO] user=jade ip=192.168.1.239 action=download fichier=cours_R.html code=200 duree=179ms
+2026-01-17 06:47:12 [INFO] user=djibril ip=192.168.1.75 action=search code=200 duree=117ms
+2026-01-17 06:53:33 [INFO] user=pauline ip=192.168.10.168 action=download fichier=notes.xlsx code=200 duree=1069ms
+2026-01-17 07:05:18 [ERROR] user=awa ip=192.168.1.87 action=download fichier=photo.png code=500 duree=1265ms msg="Fichier introuvable"
+2026-01-17 07:32:23 [INFO] user=sami ip=192.168.1.189 action=login code=200 duree=311ms
+2026-01-17 07:47:20 [INFO] user=dina ip=192.168.1.162 action=logout code=200 duree=276ms
+2026-01-17 07:52:59 [WARN] user=valerie ip=192.168.1.38 action=download fichier=archive.zip code=401 duree=295ms
+2026-01-17 08:10:39 [INFO] user=clemence ip=192.168.1.81 action=login code=200 duree=139ms
+2026-01-17 08:40:50 [INFO] user=clemence ip=192.168.1.200 action=logout code=200 duree=225ms
+2026-01-17 08:58:37 [INFO] user=gael ip=192.168.1.36 action=login code=200 duree=446ms
+2026-01-17 09:03:10 [INFO] user=chen ip=192.168.1.141 action=logout code=200 duree=192ms
+2026-01-17 09:25:54 [INFO] user=wassim ip=192.168.1.140 action=download fichier=notes.xlsx code=200 duree=360ms
+2026-01-17 09:42:26 [INFO] user=chen ip=192.168.1.200 action=download fichier=data.csv code=200 duree=508ms
+2026-01-17 10:17:08 [INFO] user=pauline ip=203.0.113.42 action=search code=200 duree=118ms
+2026-01-17 10:17:42 [INFO] user=clemence ip=192.168.1.117 action=logout code=200 duree=121ms
+2026-01-17 10:23:12 [INFO] user=dina ip=192.168.1.212 action=download fichier=notes.xlsx code=200 duree=779ms
+2026-01-17 10:28:26 [INFO] user=gael ip=192.168.10.19 action=download fichier=cours_R.html code=200 duree=122ms
+2026-01-17 10:34:34 [INFO] user=djibril ip=192.168.1.120 action=download fichier=data.csv code=200 duree=75ms
+2026-01-17 10:44:42 [INFO] user=rokhaya ip=192.168.1.101 action=upload fichier=archive.zip code=200 duree=40ms
+2026-01-17 10:50:37 [INFO] user=chen ip=203.0.113.7 action=login code=200 duree=195ms
+2026-01-17 10:54:06 [INFO] user=clemence ip=192.168.10.17 action=logout code=200 duree=69ms
+2026-01-17 11:05:24 [INFO] user=wassim ip=192.168.1.144 action=search code=200 duree=156ms
+2026-01-17 11:13:26 [INFO] user=rokhaya ip=192.168.1.239 action=login code=200 duree=322ms
+2026-01-17 11:41:04 [INFO] user=theo ip=192.168.2.253 action=login code=200 duree=220ms
+2026-01-17 11:43:42 [INFO] user=pauline ip=192.168.1.71 action=view code=200 duree=720ms
+2026-01-17 11:45:26 [INFO] user=quentin ip=192.168.1.118 action=login code=200 duree=145ms
+2026-01-17 11:45:31 [ERROR] user=clemence ip=192.168.1.84 action=login code=500 duree=570ms msg="Fichier introuvable"
+2026-01-17 11:48:33 [INFO] user=dina ip=192.168.1.89 action=logout code=200 duree=79ms
+2026-01-17 11:49:18 [INFO] user=jade ip=192.168.1.218 action=download fichier=data.csv code=200 duree=128ms
+2026-01-17 11:58:11 [WARN] user=chen ip=192.168.10.69 action=logout code=429 duree=152ms
+2026-01-17 12:08:12 [ERROR] user=valerie ip=192.168.1.132 action=logout code=404 duree=1295ms msg="Connexion refusée"
+2026-01-17 12:14:25 [INFO] user=dina ip=192.168.1.149 action=logout code=200 duree=271ms
+2026-01-17 12:17:37 [INFO] user=awa ip=192.168.10.139 action=login code=200 duree=60ms
+2026-01-17 12:24:25 [INFO] user=- ip=203.0.113.7 action=download fichier=photo.png code=200 duree=262ms
+2026-01-17 12:26:11 [INFO] user=jade ip=192.168.1.196 action=search code=200 duree=236ms
+2026-01-17 12:31:45 [INFO] user=clemence ip=192.168.2.139 action=download fichier=archive.zip code=200 duree=114ms
+2026-01-17 12:52:53 [INFO] user=clemence ip=192.168.1.160 action=view code=200 duree=34ms
+2026-01-17 12:53:02 [INFO] user=awa ip=192.168.1.206 action=login code=200 duree=239ms
+2026-01-17 13:02:44 [INFO] user=awa ip=192.168.2.115 action=view code=200 duree=871ms
+2026-01-17 13:08:28 [WARN] user=jade ip=192.168.1.10 action=download fichier=data.csv code=401 duree=142ms
+2026-01-17 13:22:08 [INFO] user=djibril ip=192.168.2.223 action=download fichier=photo.png code=200 duree=254ms
+2026-01-17 13:22:31 [INFO] user=pauline ip=192.168.2.102 action=upload fichier=cours_R.html code=200 duree=39ms
+2026-01-17 14:21:05 [INFO] user=theo ip=192.168.1.54 action=search code=200 duree=33ms
+2026-01-17 14:21:50 [INFO] user=djibril ip=192.168.2.23 action=logout code=200 duree=238ms
+2026-01-17 14:24:44 [INFO] user=valerie ip=192.168.2.25 action=view code=200 duree=424ms
+2026-01-17 14:50:48 [INFO] user=jade ip=192.168.1.217 action=download fichier=archive.zip code=200 duree=209ms
+2026-01-17 14:58:34 [INFO] user=gael ip=192.168.10.33 action=search code=200 duree=551ms
+2026-01-17 15:11:20 [INFO] user=dina ip=192.168.1.14 action=view code=200 duree=111ms
+2026-01-17 15:29:41 [WARN] user=wassim ip=192.168.10.31 action=download fichier=notes.xlsx code=401 duree=199ms
+2026-01-17 15:31:39 [INFO] user=sami ip=192.168.10.234 action=download fichier=data.csv code=200 duree=465ms
+2026-01-17 15:49:49 [INFO] user=chen ip=192.168.1.193 action=logout code=200 duree=614ms
+2026-01-17 16:40:57 [INFO] user=rokhaya ip=192.168.2.209 action=logout code=200 duree=278ms
+2026-01-17 16:46:24 [INFO] user=wassim ip=192.168.2.118 action=logout code=200 duree=365ms
+2026-01-17 16:49:50 [INFO] user=quentin ip=192.168.1.3 action=view code=200 duree=96ms
+2026-01-17 17:07:41 [INFO] user=clemence ip=192.168.1.121 action=download fichier=cours_R.html code=200 duree=74ms
+2026-01-17 17:07:57 [INFO] user=- ip=192.168.10.57 action=search code=200 duree=241ms
+2026-01-17 17:09:55 [INFO] user=gael ip=192.168.1.141 action=view code=200 duree=258ms
+2026-01-17 17:10:50 [INFO] user=chen ip=192.168.10.92 action=upload fichier=notes.xlsx code=200 duree=361ms
+2026-01-17 17:26:43 [INFO] user=djibril ip=192.168.1.25 action=login code=200 duree=145ms
+2026-01-17 17:32:17 [WARN] user=valerie ip=192.168.10.27 action=download fichier=data.csv code=429 duree=379ms
+2026-01-17 17:42:49 [INFO] user=wassim ip=192.168.10.168 action=search code=200 duree=267ms
+2026-01-17 17:50:12 [ERROR] user=quentin ip=192.168.2.128 action=download fichier=notes.xlsx code=503 duree=1195ms msg="Connexion refusée"
+2026-01-17 17:50:22 [INFO] user=djibril ip=192.168.1.105 action=logout code=200 duree=154ms
+2026-01-17 17:53:10 [INFO] user=pauline ip=192.168.2.53 action=download fichier=data.csv code=200 duree=110ms
+2026-01-17 17:58:56 [INFO] user=wassim ip=192.168.1.223 action=view code=200 duree=111ms
+2026-01-17 18:06:49 [INFO] user=jade ip=192.168.10.235 action=login code=200 duree=241ms
+2026-01-17 18:13:16 [INFO] user=rokhaya ip=192.168.10.88 action=upload fichier=cours_R.html code=200 duree=199ms
+2026-01-17 18:30:57 [INFO] user=valerie ip=192.168.1.54 action=search code=200 duree=84ms
+2026-01-17 18:42:56 [INFO] user=sami ip=192.168.2.137 action=login code=200 duree=531ms
+2026-01-17 19:01:39 [INFO] user=clemence ip=192.168.10.224 action=logout code=200 duree=165ms
+2026-01-17 19:09:00 [INFO] user=gael ip=192.168.1.61 action=login code=200 duree=133ms
+2026-01-17 19:09:29 [INFO] user=awa ip=203.0.113.7 action=logout code=200 duree=99ms
+2026-01-17 19:13:31 [INFO] user=elias ip=192.168.2.194 action=logout code=200 duree=78ms
+2026-01-17 19:19:08 [INFO] user=clemence ip=192.168.10.142 action=download fichier=data.csv code=200 duree=166ms
+2026-01-17 19:19:28 [INFO] user=awa ip=192.168.10.179 action=logout code=200 duree=207ms
+2026-01-17 19:33:42 [WARN] user=rokhaya ip=192.168.10.135 action=download fichier=data.csv code=429 duree=93ms
+2026-01-17 19:35:14 [INFO] user=gael ip=192.168.2.215 action=search code=200 duree=191ms
+2026-01-17 19:41:48 [ERROR] user=pauline ip=192.168.1.235 action=view code=404 duree=780ms msg="Timeout base de données"
+2026-01-17 19:45:41 [INFO] user=valerie ip=192.168.1.161 action=view code=200 duree=334ms
+2026-01-17 19:46:31 [INFO] user=dina ip=192.168.1.117 action=search code=200 duree=378ms
+2026-01-17 19:51:22 [WARN] user=elias ip=192.168.1.73 action=upload fichier=photo.png code=401 duree=142ms
+2026-01-17 20:00:27 [INFO] user=gael ip=192.168.10.41 action=login code=200 duree=537ms
+2026-01-17 20:06:57 [WARN] user=valerie ip=192.168.10.137 action=view code=401 duree=116ms
+2026-01-17 20:19:41 [ERROR] user=awa ip=192.168.1.101 action=search code=404 duree=690ms msg="Connexion refusée"
+2026-01-17 20:19:59 [INFO] user=djibril ip=192.168.1.228 action=login code=200 duree=347ms
+2026-01-17 20:24:48 [INFO] user=wassim ip=192.168.1.8 action=search code=200 duree=299ms
+2026-01-17 20:37:31 [WARN] user=moussa ip=192.168.2.128 action=login code=429 duree=377ms
+2026-01-17 20:53:14 [INFO] user=theo ip=192.168.1.83 action=login code=200 duree=101ms
+2026-01-17 20:54:25 [INFO] user=awa ip=203.0.113.7 action=download fichier=photo.png code=200 duree=180ms
+2026-01-17 20:56:21 [INFO] user=wassim ip=192.168.2.52 action=view code=200 duree=258ms
+2026-01-17 21:25:05 [ERROR] user=gael ip=192.168.2.249 action=search code=500 duree=1515ms msg="Mémoire insuffisante"
+2026-01-17 21:29:17 [INFO] user=valerie ip=192.168.2.2 action=login code=200 duree=160ms
+2026-01-17 22:03:17 [WARN] user=wassim ip=192.168.1.46 action=search code=401 duree=147ms
+2026-01-17 22:44:57 [INFO] user=jade ip=192.168.1.71 action=view code=200 duree=378ms
+2026-01-17 22:53:33 [INFO] user=pauline ip=192.168.1.30 action=login code=200 duree=404ms
+2026-01-17 22:54:41 [INFO] user=wassim ip=192.168.10.6 action=view code=200 duree=360ms
+2026-01-17 23:04:31 [INFO] user=awa ip=192.168.2.136 action=view code=200 duree=207ms
+2026-01-17 23:12:45 [INFO] user=valerie ip=192.168.1.207 action=download fichier=cours_R.html code=200 duree=244ms
+2026-01-17 23:19:49 [INFO] user=wassim ip=192.168.1.35 action=search code=200 duree=75ms
+2026-01-17 23:37:20 [INFO] user=chen ip=192.168.1.94 action=view code=200 duree=81ms
+2026-01-17 23:41:41 [INFO] user=wassim ip=192.168.10.55 action=view code=200 duree=49ms
+2026-01-17 23:46:34 [INFO] user=jade ip=192.168.1.14 action=login code=200 duree=158ms
+2026-01-17 23:54:42 [WARN] user=jade ip=192.168.1.184 action=download fichier=data.csv code=401 duree=416ms
