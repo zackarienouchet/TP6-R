@@ -1,0 +1,61 @@
+id,prenom,nom,email,tel,cp,ville,inscription
+C001,Valérie,FALL,valerie.fall@yahoo.fr,NA,75020,Paris,2023-08-24
+C002,Jade,GIRARD,jade.girard@free.fr,04 50 22 51 38,59000,Lille,2025-02-20
+C003,Chen,CHEVALIER,chen.chevalier@orange.fr,01 02 23 14 73,75011,Paris,2025-08-20
+C004,Awa,NDIAYE,awa.ndiaye@lecnam.net,01 98 84 59 09,75011,Paris,2024-09-02
+C005,Gaël,MBAYE,gael.mbaye@lecnam.net,04 57 05 26 77,31000,Toulouse,2025-07-22
+C006,Rokhaya,BENALI,rokhaya.benali@yahoo.fr,06 40 95 18 29,44000,Nantes,2025-02-20
+C007,Awa,FAYE,awa.faye@yahoo.fr,07 24 33 72 04,31000,Toulouse,2025-09-02
+C008,Clémence,GARCIA,clemence.garcia@orange.fr,01 72 83 18 14,34000,Montpellier,2025-09-05
+C009,Jade,MARTIN,jade.martin@lecnam.net,06 08 50 10 27,93200,Saint-Denis,2025-03-02
+C010,Moussa,WANG,NA,07 73 32 60 45,13005,Marseille,2023-07-14
+C011,Quentin,DIALLO,quentin.diallo@yahoo.fr,01 12 11 86 38,75011,Paris,2025-02-07
+C012,Rokhaya,BENALI,rokhaya.benali@gmail.com,06 69 20 17 56,13005,Marseille,2024-10-25
+C013,Sami,DIOP,sami.diop@yahoo.fr,06 52 63 68 30,35000,Rennes,2024-09-17
+C014,Djibril,GIRARD,djibril.girard@free.fr,04 69 18 79 54,67000,Strasbourg,2024-07-19
+C015,Dina,DURAND,dina.durand@yahoo.fr,06 59 38 97 79,33800,Bordeaux,2023-01-20
+C016,Gaël,BENALI,gael.benali@yahoo.fr,06 06 35 77 30,75020,Paris,2024-03-27
+C017,Clémence,FALL,clemence.fall@outlook.fr,06 85 48 12 30,67000,Strasbourg,2025-08-14
+C018,Théo,GIRARD,theo.girard@free.fr,06 96 51 76 39,34000,Montpellier,2023-11-29
+C019,Wassim,LE GOFF,wassim.legoff@outlook.fr,06 05 94 24 24,33800,Bordeaux,2024-09-14
+C020,Pauline,GIRARD,pauline.girard@orange.fr,06 87 48 27 91,67000,Strasbourg,2024-05-13
+C021,Pauline,FALL,NA,06 62 74 15 59,13005,Marseille,2025-09-02
+C022,Elias,NGUYEN,elias.nguyen@yahoo.fr,07 55 00 41 42,35000,Rennes,2024-05-19
+C023,Wassim,FONTAINE,wassim.fontaine@outlook.fr,06 45 16 25 00,75011,Paris,2025-04-17
+C024,Awa,MBAYE,awa.mbaye@free.fr,06 68 66 82 64,06000,Nice,2024-12-23
+C025,Valérie,LAMBERT,valerie.lambert@gmail.com,06 37 15 35 13,44000,Nantes,2024-08-15
+C026,Zoé,NDIAYE,NA,06 86 35 59 98,31000,Toulouse,2024-04-22
+C027,Yasmine,KONE,yasmine.kone@outlook.fr,06 95 98 62 00,06000,Nice,2023-05-05
+C028,Ulysse,BLANC,NA,06 83 42 80 89,69007,Lyon,2025-09-05
+C029,Aminata,DURAND,aminata.durand@free.fr,07 83 60 61 89,35000,Rennes,2025-07-06
+C030,Le,GOFF NORA,nora.legoff@orange.fr,04 78 18 55 51,69007,Lyon,2023-06-18
+C031,Zoé,GARCIA,zoe.garcia@free.fr,04 20 59 96 71,69007,Lyon,2024-03-15
+C032,Élise,BLANC,elise.blanc@lecnam.net,01 80 29 26 45,35000,Rennes,2023-05-20
+C033,Omar,BA,omar.ba@free.fr,NA,69007,Lyon,2024-06-05
+C034,Rokhaya,ROBIN,rokhaya.robin@orange.fr,07 42 41 32 30,93200,Saint-Denis,2025-03-11
+C035,Djibril,BA,djibril.ba@yahoo.fr,06 18 90 92 39,31000,Toulouse,2025-05-15
+C036,Nora,HADDAD,nora.haddad@outlook.fr,04 34 45 51 82,06000,Nice,2024-01-03
+C037,Pauline,HADDAD,pauline.haddad@lecnam.net,04 85 92 03 37,35000,Rennes,2023-01-12
+C038,Chen,WANG,chen.wang@lecnam.net,01 74 08 10 19,33800,Bordeaux,2025-07-04
+C039,Gaël,BERNARD,gael.bernard@yahoo.fr,01 21 24 00 85,31000,Toulouse,2023-11-12
+C040,Valérie,BERNARD,valerie.bernard@orange.fr,06 79 64 75 33,93200,Saint-Denis,2025-04-11
+C041,Awa,MERCIER,NA,07 37 03 72 16,59000,Lille,2025-01-11
+C042,Baptiste,DIALLO,baptiste.diallo@lecnam.net,06 66 89 21 17,69007,Lyon,2025-02-28
+C043,Fatou,MBAYE,fatou.mbaye@free.fr,06 43 08 34 25,75020,Paris,2024-06-22
+C044,Chen,DURAND,chen.durand@free.fr,NA,35000,Rennes,2023-12-05
+C045,Quentin,LEFÈVRE,quentin.lefevre@outlook.fr,07 19 17 22 70,75020,Paris,2023-06-16
+C046,Aminata,DIALLO,aminata.diallo@lecnam.net,01 92 56 57 65,31000,Toulouse,2025-08-09
+C047,Nora,KONE,NA,04 61 40 18 02,35000,Rennes,2025-05-31
+C048,Aminata,CHEVALIER,aminata.chevalier@orange.fr,06 43 51 05 19,67000,Strasbourg,2023-11-28
+C049,Djibril,GIRARD,djibril.girard@yahoo.fr,01 80 35 78 56,44000,Nantes,2024-06-20
+C050,Léa,LE GOFF,lea.legoff@free.fr,07 32 68 82 35,44000,Nantes,2025-03-25
+C051,Théo,DIOP,theo.diop@yahoo.fr,06 85 38 61 66,67000,Strasbourg,2023-12-06
+C052,Dina,FALL,dina.fall@yahoo.fr,01 74 21 68 91,44000,Nantes,2023-12-18
+C053,Djibril,MBAYE,djibril.mbaye@free.fr,01 35 20 13 64,31000,Toulouse,2024-05-08
+C054,Awa,LEFÈVRE,awa.lefevre@yahoo.fr,04 66 65 52 26,31000,Toulouse,2023-12-26
+C055,Chen,DIALLO,chen.diallo@lecnam.net,07 51 92 24 67,06000,Nice,2024-04-28
+C056,Rokhaya,SOW,rokhaya.sow@outlook.fr,04 43 01 84 88,13005,Marseille,2024-08-01
+C057,Clémence,ROUX,clemence.roux@gmail.com,06 30 59 56 06,13005,Marseille,2023-08-12
+C058,Pauline,CHEVALIER,pauline.chevalier@outlook.fr,06 96 58 78 93,75011,Paris,2023-08-07
+C059,Inès,CHEVALIER,ines.chevalier@gmail.com,06 49 62 43 85,67000,Strasbourg,2024-12-31
+C060,Wassim,DUPONT,wassim.dupont@yahoo.fr,07 80 31 99 53,33800,Bordeaux,2024-04-18
