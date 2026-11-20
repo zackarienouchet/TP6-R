@@ -405,6 +405,39 @@ fichier de contacts</a>
 </ul></li>
 <li><a href="#b7" id="toc-b7">B7</a></li>
 </ul></li>
+<li><a href="#partie-c-analyser-le-journal-dun-serveur" id="toc-partie-c-analyser-le-journal-dun-serveur">Partie C : Analyser le
+journal d’un serveur</a>
+<ul>
+<li><a href="#c1-lire-et-compter" id="toc-c1-lire-et-compter">C1 : Lire
+et compter</a></li>
+<li><a href="#c2-structurer-le-journal" id="toc-c2-structurer-le-journal">C2 : Structurer le journal</a></li>
+<li><a href="#c3-activit%C3%A9" id="toc-c3-activité">C3 : Activité</a>
+<ul>
+<li><a href="#a.-requ%C3%AAtes-par-jour-et-par-niveau" id="toc-a.-requêtes-par-jour-et-par-niveau">a. Requêtes par jour et par
+niveau</a></li>
+<li><a href="#b.-heure-de-plus-forte-activit%C3%A9" id="toc-b.-heure-de-plus-forte-activité">b. Heure de plus forte
+activité</a></li>
+<li><a href="#c.-erreurs-par-utilisateur-et-requ%C3%AAtes-anonymes" id="toc-c.-erreurs-par-utilisateur-et-requêtes-anonymes">c. Erreurs par
+utilisateur et requêtes anonymes</a></li>
+</ul></li>
+<li><a href="#c4-performances-et-erreurs" id="toc-c4-performances-et-erreurs">C4 : Performances et erreurs</a>
+<ul>
+<li><a href="#a.-dur%C3%A9es-par-action" id="toc-a.-durées-par-action">a. Durées par action</a></li>
+<li><a href="#b.-dur%C3%A9e-selon-le-niveau" id="toc-b.-durée-selon-le-niveau">b. Durée selon le niveau</a></li>
+<li><a href="#c.-messages-derreur" id="toc-c.-messages-derreur">c. Messages d’erreur</a></li>
+<li><a href="#d.-fichiers-les-plus-t%C3%A9l%C3%A9charg%C3%A9s" id="toc-d.-fichiers-les-plus-téléchargés">d. Fichiers les plus
+téléchargés</a></li>
+</ul></li>
+<li><a href="#c5-adresses-ip-suspectes" id="toc-c5-adresses-ip-suspectes">C5 : Adresses IP suspectes</a>
+<ul>
+<li><a href="#a.-requ%C3%AAtes-venant-de-lext%C3%A9rieur" id="toc-a.-requêtes-venant-de-lextérieur">a. Requêtes venant de
+l’extérieur</a></li>
+<li><a href="#b.-profil-des-adresses-ext%C3%A9rieures" id="toc-b.-profil-des-adresses-extérieures">b. Profil des adresses
+extérieures</a></li>
+<li><a href="#c.-v%C3%A9rification-du-format-ipv4" id="toc-c.-vérification-du-format-ipv4">c. Vérification du format
+IPv4</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </div>
 
@@ -972,7 +1005,7 @@ répartissent entre 2023 et 2025.</p>
             inscription = date_inscription)
 
 dir.create(&quot;sorties&quot;, showWarnings = FALSE)
-write_csv(contacts_propres, &quot;data/contacts_propres.csv&quot;)
+write_csv(contacts_propres, &quot;sorties/contacts_propres.csv&quot;)
 
 contacts_propres</code></pre>
 <pre><code>## # A tibble: 60 × 8
@@ -994,6 +1027,275 @@ nb_complets</code></pre>
 <pre><code>## [1] 51</code></pre>
 <p>51 contacts sur 60 sont complets. Les autres ont un e-mail invalide
 ou absent, ou un téléphone invalide.</p>
+</div>
+</div>
+<div id="partie-c-analyser-le-journal-dun-serveur" class="section level1">
+<h1>Partie C : Analyser le journal d’un serveur</h1>
+<div id="c1-lire-et-compter" class="section level2">
+<h2>C1 : Lire et compter</h2>
+<pre class="r"><code>lignes &lt;- read_lines(&quot;data/journal_serveur.log&quot;)
+length(lignes)</code></pre>
+<pre><code>## [1] 400</code></pre>
+<pre class="r"><code>tibble(
+  niveau = c(&quot;INFO&quot;, &quot;WARN&quot;, &quot;ERROR&quot;),
+  n = c(sum(str_detect(lignes, &quot;\\[INFO\\]&quot;)),
+        sum(str_detect(lignes, &quot;\\[WARN\\]&quot;)),
+        sum(str_detect(lignes, &quot;\\[ERROR\\]&quot;)))
+)</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##   niveau     n
+##   &lt;chr&gt;  &lt;int&gt;
+## 1 INFO     317
+## 2 WARN      45
+## 3 ERROR     38</code></pre>
+<p>Le journal contient 400 lignes : 317 INFO, 45 WARN et 38 ERROR. Les
+crochets doivent être échappés, sinon <code>[INFO]</code> serait une
+classe de caractères (« I, N, F ou O »).</p>
+</div>
+<div id="c2-structurer-le-journal" class="section level2">
+<h2>C2 : Structurer le journal</h2>
+<p>Chaque champ est récupéré avec <code>str_match()</code> et un groupe
+de capture. Quand un champ est absent (<code>fichier</code>,
+<code>msg</code>), <code>str_match()</code> renvoie directement
+<code>NA</code>.</p>
+<pre class="r"><code>log &lt;- tibble(ligne = lignes) |&gt;
+  mutate(
+    horodatage = ymd_hms(str_extract(ligne, &quot;^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}&quot;)),
+    niveau  = str_match(ligne, &quot;\\[(\\w+)\\]&quot;)[, 2],
+    user    = na_if(str_match(ligne, &quot;user=(\\S+)&quot;)[, 2], &quot;-&quot;),
+    ip      = str_match(ligne, &quot;ip=(\\S+)&quot;)[, 2],
+    action  = str_match(ligne, &quot;action=(\\S+)&quot;)[, 2],
+    fichier = str_match(ligne, &quot;fichier=(\\S+)&quot;)[, 2],
+    code    = as.integer(str_match(ligne, &quot;code=(\\d+)&quot;)[, 2]),
+    duree   = as.numeric(str_match(ligne, &quot;duree=(\\d+)ms&quot;)[, 2]),
+    msg     = str_match(ligne, &#39;msg=&quot;([^&quot;]*)&quot;&#39;)[, 2]
+  ) |&gt;
+  select(-ligne)
+
+log</code></pre>
+<pre><code>## # A tibble: 400 × 9
+##    horodatage          niveau user  ip          action fichier  code duree msg  
+##    &lt;dttm&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;
+##  1 2026-01-15 00:19:03 WARN   elias 192.168.1.… view   &lt;NA&gt;      401   159 &lt;NA&gt; 
+##  2 2026-01-15 00:23:49 WARN   jade  192.168.1.… downl… notes.…   404   221 &lt;NA&gt; 
+##  3 2026-01-15 00:34:14 ERROR  theo  192.168.1.… downl… photo.…   404  2720 Mémo…
+##  4 2026-01-15 00:39:04 INFO   awa   203.0.113.… search &lt;NA&gt;      200   218 &lt;NA&gt; 
+##  5 2026-01-15 00:42:08 INFO   awa   192.168.1.… search &lt;NA&gt;      200   167 &lt;NA&gt; 
+##  6 2026-01-15 01:10:44 INFO   gael  192.168.1.… upload photo.…   200   534 &lt;NA&gt; 
+##  7 2026-01-15 01:11:08 WARN   theo  192.168.2.… view   &lt;NA&gt;      429   608 &lt;NA&gt; 
+##  8 2026-01-15 01:12:23 INFO   theo  192.168.1.… view   &lt;NA&gt;      200   129 &lt;NA&gt; 
+##  9 2026-01-15 01:20:15 ERROR  jade  192.168.1.… login  &lt;NA&gt;      500   555 Time…
+## 10 2026-01-15 01:41:09 INFO   &lt;NA&gt;  192.168.1.… view   &lt;NA&gt;      200   206 &lt;NA&gt; 
+## # ℹ 390 more rows</code></pre>
+<pre class="r"><code>summary(select(log, code, duree))</code></pre>
+<pre><code>##       code           duree       
+##  Min.   :200.0   Min.   :  18.0  
+##  1st Qu.:200.0   1st Qu.: 116.0  
+##  Median :200.0   Median : 199.5  
+##  Mean   :249.6   Mean   : 316.4  
+##  3rd Qu.:200.0   3rd Qu.: 352.5  
+##  Max.   :503.0   Max.   :4260.0</code></pre>
+</div>
+<div id="c3-activité" class="section level2">
+<h2>C3 : Activité</h2>
+<div id="a.-requêtes-par-jour-et-par-niveau" class="section level3">
+<h3>a. Requêtes par jour et par niveau</h3>
+<pre class="r"><code>log |&gt;
+  count(jour = as_date(horodatage), niveau) |&gt;
+  pivot_wider(names_from = niveau, values_from = n, values_fill = 0) |&gt;
+  select(jour, INFO, WARN, ERROR)</code></pre>
+<pre><code>## # A tibble: 3 × 4
+##   jour        INFO  WARN ERROR
+##   &lt;date&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1 2026-01-15   101    17    15
+## 2 2026-01-16    96    13    12
+## 3 2026-01-17   120    15    11</code></pre>
+</div>
+<div id="b.-heure-de-plus-forte-activité" class="section level3">
+<h3>b. Heure de plus forte activité</h3>
+<pre class="r"><code>par_heure &lt;- log |&gt; count(heure = hour(horodatage), sort = TRUE)
+par_heure |&gt; slice_head(n = 5)</code></pre>
+<pre><code>## # A tibble: 5 × 2
+##   heure     n
+##   &lt;int&gt; &lt;int&gt;
+## 1    14    29
+## 2    10    25
+## 3    19    25
+## 4     4    23
+## 5     1    20</code></pre>
+<p>Le serveur est le plus sollicité à <strong>14 h</strong> (29 requêtes
+sur les trois jours).</p>
+</div>
+<div id="c.-erreurs-par-utilisateur-et-requêtes-anonymes" class="section level3">
+<h3>c. Erreurs par utilisateur et requêtes anonymes</h3>
+<pre class="r"><code>log |&gt;
+  filter(niveau == &quot;ERROR&quot;, !is.na(user)) |&gt;
+  count(user, sort = TRUE) |&gt;
+  slice_head(n = 5)</code></pre>
+<pre><code>## # A tibble: 5 × 2
+##   user         n
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 jade         5
+## 2 rokhaya      4
+## 3 valerie      4
+## 4 awa          3
+## 5 clemence     3</code></pre>
+<pre class="r"><code>part_anonyme &lt;- mean(is.na(log$user))
+part_anonyme</code></pre>
+<pre><code>## [1] 0.0425</code></pre>
+<p><code>jade</code> est l’utilisatrice qui a le plus d’erreurs, devant
+<code>rokhaya</code> et <code>valerie</code>. Les requêtes anonymes
+représentent 4.2 % du total.</p>
+</div>
+</div>
+<div id="c4-performances-et-erreurs" class="section level2">
+<h2>C4 : Performances et erreurs</h2>
+<div id="a.-durées-par-action" class="section level3">
+<h3>a. Durées par action</h3>
+<pre class="r"><code>log |&gt;
+  group_by(action) |&gt;
+  summarise(n = n(),
+            duree_mediane = median(duree),
+            duree_p90 = quantile(duree, 0.9)) |&gt;
+  arrange(desc(duree_mediane))</code></pre>
+<pre><code>## # A tibble: 6 × 4
+##   action       n duree_mediane duree_p90
+##   &lt;chr&gt;    &lt;int&gt;         &lt;dbl&gt;     &lt;dbl&gt;
+## 1 upload      17          257       536 
+## 2 login       77          222       533.
+## 3 logout      61          207       614 
+## 4 download    81          199       796 
+## 5 search      74          194       514.
+## 6 view        90          180.      622.</code></pre>
+</div>
+<div id="b.-durée-selon-le-niveau" class="section level3">
+<h3>b. Durée selon le niveau</h3>
+<pre class="r"><code>duree_niveau &lt;- log |&gt;
+  group_by(niveau) |&gt;
+  summarise(n = n(), duree_mediane = median(duree))
+duree_niveau</code></pre>
+<pre><code>## # A tibble: 3 × 3
+##   niveau     n duree_mediane
+##   &lt;chr&gt;  &lt;int&gt;         &lt;dbl&gt;
+## 1 ERROR     38           785
+## 2 INFO     317           176
+## 3 WARN      45           196</code></pre>
+<p>Oui, les requêtes en erreur sont nettement plus lentes : la durée
+médiane est de 785 ms pour ERROR, contre 176 ms pour INFO. C’est
+cohérent avec les messages d’erreur (timeouts, mémoire
+insuffisante).</p>
+</div>
+<div id="c.-messages-derreur" class="section level3">
+<h3>c. Messages d’erreur</h3>
+<pre class="r"><code>log |&gt;
+  filter(!is.na(msg)) |&gt;
+  count(msg, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 4 × 2
+##   msg                         n
+##   &lt;chr&gt;                   &lt;int&gt;
+## 1 Timeout base de données    12
+## 2 Connexion refusée          10
+## 3 Mémoire insuffisante        9
+## 4 Fichier introuvable         7</code></pre>
+<p>On trouve quatre messages différents. Le plus fréquent est « Timeout
+base de données », devant « Connexion refusée », « Mémoire insuffisante
+» et « Fichier introuvable ».</p>
+</div>
+<div id="d.-fichiers-les-plus-téléchargés" class="section level3">
+<h3>d. Fichiers les plus téléchargés</h3>
+<pre class="r"><code>telechargements &lt;- log |&gt;
+  filter(action == &quot;download&quot;, code == 200)
+
+telechargements |&gt; count(fichier, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 6 × 2
+##   fichier              n
+##   &lt;chr&gt;            &lt;int&gt;
+## 1 photo.png           14
+## 2 data.csv            12
+## 3 cours_R.html        10
+## 4 rapport_2025.pdf     8
+## 5 archive.zip          7
+## 6 notes.xlsx           7</code></pre>
+<pre class="r"><code>telechargements |&gt;
+  mutate(extension = str_extract(fichier, &quot;(?&lt;=\\.)[[:alnum:]]+$&quot;)) |&gt;
+  count(extension, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 6 × 2
+##   extension     n
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 png          14
+## 2 csv          12
+## 3 html         10
+## 4 pdf           8
+## 5 xlsx          7
+## 6 zip           7</code></pre>
+<p><code>photo.png</code> est le fichier le plus téléchargé avec succès.
+Par extension, ce sont les <code>png</code> qui arrivent en tête.</p>
+</div>
+</div>
+<div id="c5-adresses-ip-suspectes" class="section level2">
+<h2>C5 : Adresses IP suspectes</h2>
+<div id="a.-requêtes-venant-de-lextérieur" class="section level3">
+<h3>a. Requêtes venant de l’extérieur</h3>
+<pre class="r"><code>log &lt;- log |&gt; mutate(externe = !str_detect(ip, &quot;^192\\.168\\.&quot;))
+
+sum(log$externe)</code></pre>
+<pre><code>## [1] 25</code></pre>
+<pre class="r"><code>n_distinct(log$ip[log$externe])</code></pre>
+<pre><code>## [1] 2</code></pre>
+<p>25 requêtes viennent de l’extérieur du réseau interne, depuis 2
+adresses distinctes.</p>
+</div>
+<div id="b.-profil-des-adresses-extérieures" class="section level3">
+<h3>b. Profil des adresses extérieures</h3>
+<pre class="r"><code>ip_externes &lt;- log |&gt;
+  filter(externe) |&gt;
+  group_by(ip) |&gt;
+  summarise(n_requetes = n(),
+            n_utilisateurs = n_distinct(user, na.rm = TRUE),
+            n_erreurs = sum(niveau == &quot;ERROR&quot;),
+            n_refus = sum(code %in% c(401, 429))) |&gt;
+  arrange(desc(n_requetes))
+ip_externes</code></pre>
+<pre><code>## # A tibble: 2 × 5
+##   ip           n_requetes n_utilisateurs n_erreurs n_refus
+##   &lt;chr&gt;             &lt;int&gt;          &lt;int&gt;     &lt;int&gt;   &lt;int&gt;
+## 1 203.0.113.7          20             10         0       0
+## 2 203.0.113.42          5              5         0       0</code></pre>
+<pre class="r"><code>log |&gt; filter(ip == &quot;203.0.113.7&quot;) |&gt; count(user, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 11 × 2
+##    user         n
+##    &lt;chr&gt;    &lt;int&gt;
+##  1 clemence     6
+##  2 chen         3
+##  3 awa          2
+##  4 jade         2
+##  5 dina         1
+##  6 elias        1
+##  7 gael         1
+##  8 rokhaya      1
+##  9 sami         1
+## 10 valerie      1
+## 11 &lt;NA&gt;         1</code></pre>
+<p>Aucune des deux adresses ne provoque d’erreurs ou de refus. Ce qui
+est suspect, c’est que <strong>plusieurs comptes différents se
+connectent depuis la même adresse extérieure</strong>. L’adresse
+<strong>203.0.113.7</strong> me paraît la plus suspecte : 20 requêtes
+réparties sur les trois jours et 10 comptes différents, avec des
+connexions, des envois et des téléchargements de fichiers. Une seule
+machine extérieure qui utilise autant de comptes fait penser à des
+identifiants volés ou partagés. Et comme il n’y a aucun refus, les
+connexions réussissent, ce qui est plus inquiétant qu’une série
+d’échecs. L’adresse 203.0.113.42 a le même comportement, mais sur
+seulement 5 requêtes.</p>
+</div>
+<div id="c.-vérification-du-format-ipv4" class="section level3">
+<h3>c. Vérification du format IPv4</h3>
+<pre class="r"><code>all(str_detect(log$ip, &quot;^\\d{1,3}(\\.\\d{1,3}){3}$&quot;))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Toutes les adresses ont bien la forme d’une IPv4 : 4 nombres de 1 à 3
+chiffres séparés par des points. Ce motif ne vérifie pas que chaque
+nombre est inférieur ou égal à 255.</p>
+</div>
 </div>
 </div>
 
