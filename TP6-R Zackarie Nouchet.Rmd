@@ -1,9 +1,11 @@
 ---
 title: "TP 6 : Texte et expressions régulières"
-author: "Zackarie Nouchet"
+author: "Prénom NOM"
+date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
+    toc_float: true
 ---
 
 ```{r setup, include = FALSE}
@@ -546,3 +548,217 @@ all(str_detect(log$ip, "^\\d{1,3}(\\.\\d{1,3}){3}$"))
 ```
 
 Toutes les adresses ont bien la forme d'une IPv4 : 4 nombres de 1 à 3 chiffres séparés par des points. Ce motif ne vérifie pas que chaque nombre est inférieur ou égal à 255.
+
+# Partie D : Analyse textuelle d'avis clients
+
+## D1 : Explorer les textes
+
+### a. Longueur des avis
+
+```{r d1a}
+avis <- read_csv("data/avis_clients.csv", show_col_types = FALSE) |>
+  mutate(longueur = str_length(texte))
+
+nrow(avis)
+mean(avis$longueur)
+avis |>
+  slice_max(longueur, n = 1, with_ties = FALSE) |>
+  select(id_avis, produit, note, longueur, texte)
+```
+
+Un avis fait en moyenne `r round(mean(avis$longueur), 1)` caractères. Le plus long en fait `r max(avis$longueur)` : « `r avis$texte[which.max(avis$longueur)]` ».
+
+### b. Avis écrits en majuscules
+
+Un avis est « entièrement en majuscules » s'il contient au moins une lettre et qu'il ne change pas quand on le passe en majuscules.
+
+```{r d1b}
+avis <- avis |>
+  mutate(majuscules = str_detect(texte, "[[:alpha:]]") & texte == str_to_upper(texte))
+
+maj <- avis |>
+  group_by(majuscules) |>
+  summarise(n = n(), note_moyenne = mean(note))
+maj
+```
+
+`r sum(avis$majuscules)` avis sont écrits entièrement en majuscules. Leur note moyenne (`r round(maj$note_moyenne[maj$majuscules], 2)`) est très proche de celle des autres (`r round(maj$note_moyenne[!maj$majuscules], 2)`). Écrire en majuscules ne traduit donc pas une colère particulière dans ces données.
+
+### c. Points d'exclamation et émoticônes
+
+```{r d1c}
+sum(str_detect(avis$texte, "!"))
+sum(str_detect(avis$texte, ":\\)|:\\("))
+sum(str_detect(avis$texte, ":\\)"))
+sum(str_detect(avis$texte, ":\\("))
+```
+
+`r sum(str_detect(avis$texte, "!"))` avis contiennent au moins un point d'exclamation et `r sum(str_detect(avis$texte, ":\\)|:\\("))` contiennent un émoticône (`:)` ou `:(`). Les parenthèses doivent être échappées dans la regex.
+
+## D2 : Découper en mots
+
+### a. Tableau des mots
+
+```{r d2a}
+mots <- avis |>
+  mutate(mot = str_split(str_to_lower(texte), "[^[:alpha:]']+")) |>
+  unnest(mot) |>
+  filter(mot != "") |>
+  select(id_avis, produit, note, mot)
+mots
+```
+
+### b. Nombre de mots
+
+```{r d2b}
+nrow(mots)
+n_distinct(mots$mot)
+```
+
+Il y a `r nrow(mots)` mots au total mais seulement `r n_distinct(mots$mot)` mots distincts : les avis sont très répétitifs.
+
+### c. Mots les plus fréquents
+
+```{r d2c}
+mots |> count(mot, sort = TRUE) |> slice_head(n = 10)
+
+mots_vides <- c("le", "la", "les", "l'", "un", "une", "des", "de", "du", "d'", "d'un",
+                "et", "ou", "à", "au", "aux", "en", "pour", "par", "sur", "dans", "avec",
+                "ce", "c'est", "ça", "je", "j'", "il", "elle", "on", "nous", "vous",
+                "me", "se", "s'est", "est", "ne", "pas", "que", "qu'", "qui",
+                "très", "trop", "tout", "rien", "peu", "dès")
+
+mots |>
+  filter(!mot %in% mots_vides) |>
+  count(mot, sort = TRUE) |>
+  slice_head(n = 10)
+```
+
+Avec les mots vides, le classement est dominé par « et », « la » et « le », qui n'apportent rien. Une fois ces mots retirés, on voit apparaître le vocabulaire des avis : « qualité », « satisfait », « livraison », « recommande », « conforme »…
+
+## D3 : Des mots qui distinguent les notes
+
+### a. Mots fréquents par catégorie
+
+```{r d3a}
+avis <- avis |>
+  mutate(categorie = case_when(note <= 2 ~ "négatif",
+                               note == 3 ~ "neutre",
+                               TRUE      ~ "positif"))
+mots <- mots |>
+  mutate(categorie = case_when(note <= 2 ~ "négatif",
+                               note == 3 ~ "neutre",
+                               TRUE      ~ "positif"))
+
+avis |> count(categorie)
+
+mots |>
+  filter(!mot %in% mots_vides) |>
+  count(categorie, mot) |>
+  group_by(categorie) |>
+  slice_max(n, n = 5, with_ties = FALSE) |>
+  ungroup()
+```
+
+Les avis négatifs parlent de taille (« taille », « petite ») et de casse (« cassé »). Les neutres parlent de « travail », « fait », « correct » et « lourd », et les positifs de « qualité », « satisfait », « parfait ». On remarque que « recommande » est le mot le plus fréquent des avis négatifs : il vient de « je **ne** recommande **pas** », et la négation disparaît quand on enlève les mots vides.
+
+### b. Note moyenne associée à chaque mot
+
+```{r d3b}
+mots_frequents <- mots |>
+  count(mot, name = "n_occurrences") |>
+  filter(n_occurrences >= 10)
+
+note_par_mot <- mots |>
+  distinct(id_avis, mot, note) |>
+  semi_join(mots_frequents, by = "mot") |>
+  group_by(mot) |>
+  summarise(n_avis = n(), note_moyenne = mean(note)) |>
+  arrange(note_moyenne)
+
+note_par_mot |> slice_head(n = 6)   # pires notes
+note_par_mot |> slice_tail(n = 6)   # meilleures notes
+```
+
+Les mots associés aux pires notes sont « pas », « trop », « taille » et « petite » (moyenne inférieure à 2). Les mots associés aux meilleures notes sont « léger », « solide », « satisfait » et « bonne » (moyenne supérieure à 4,6).
+
+## D4 : Un score de sentiment
+
+```{r d4-lexiques}
+lex_positif <- c("satisfait", "excellent", "rapide", "confortable", "recommande", "parfait",
+                 "solide", "léger", "super", "bonne", "conforme", "correct")
+lex_negatif <- c("déçu", "petite", "retard", "cassé", "étanche", "injoignable", "cher",
+                 "fragile", "mauvaise", "lourd")
+```
+
+### a. Calcul du score
+
+Règle choisie : on passe le texte en minuscules, puis on remplace « ne recommande pas » par « déconseille », qui n'est dans aucun lexique. Pour compter les mots, on encadre chaque lexique par `\\b` (limite de mot), pour ne pas compter un mot qui serait contenu dans un autre.
+
+```{r d4a}
+motif_lexique <- function(lexique) str_c("\\b(", str_c(lexique, collapse = "|"), ")\\b")
+
+avis <- avis |>
+  mutate(texte_sentiment = str_to_lower(texte) |>
+           str_replace_all("ne recommande pas", "déconseille"),
+         n_positifs = str_count(texte_sentiment, motif_lexique(lex_positif)),
+         n_negatifs = str_count(texte_sentiment, motif_lexique(lex_negatif)),
+         score = n_positifs - n_negatifs)
+
+avis |>
+  filter(str_detect(str_to_lower(texte), "ne recommande pas")) |>
+  select(texte, n_positifs, n_negatifs, score) |>
+  slice_head(n = 5)
+```
+
+### b. Corrélation avec la note
+
+```{r d4b}
+correlation <- cor(avis$score, avis$note)
+correlation
+
+avis |>
+  group_by(note) |>
+  summarise(n = n(), score_moyen = mean(score))
+```
+
+La corrélation entre le score et la note vaut `r round(correlation, 2)`. C'est une corrélation forte, et le score moyen augmente avec la note. Ce score très simple est donc un bon indicateur ici, mais les avis fictifs sont courts et utilisent un vocabulaire très limité, ce qui l'aide beaucoup.
+
+### c. Contradictions et émoticône :(
+
+```{r d4c}
+contradictions <- avis |>
+  filter((score > 0 & note <= 2) | (score < 0 & note >= 4))
+nrow(contradictions)
+
+avis |>
+  filter(str_detect(texte, ":\\(")) |>
+  select(texte, note, score)
+```
+
+Le score et la note ne se contredisent dans aucun cas (`r nrow(contradictions)` avis). En revanche, les avis qui contiennent `:(` ont presque tous une note de 4 ou 5 et un score positif (« très satisfait », « je recommande »…). L'émoticône triste contredit donc à la fois le texte et la note. Elle a probablement été ajoutée au hasard ou par erreur, ce qui montre qu'il ne faut pas se fier aux émoticônes pour juger un avis, du moins dans ces données.
+
+## D5 : Synthèse par produit
+
+```{r d5}
+mot_negatif_produit <- mots |>
+  filter(mot %in% lex_negatif) |>
+  count(produit, mot) |>
+  group_by(produit) |>
+  slice_max(n, n = 1, with_ties = FALSE) |>
+  ungroup() |>
+  select(produit, mot_negatif = mot, n_mot_negatif = n)
+
+synthese <- avis |>
+  group_by(produit) |>
+  summarise(n_avis = n(),
+            note_moyenne = mean(note),
+            score_moyen = mean(score),
+            part_negatifs = mean(categorie == "négatif")) |>
+  left_join(mot_negatif_produit, by = "produit") |>
+  arrange(note_moyenne)
+
+synthese
+```
+
+**Conclusion pour le responsable produit.** Le produit le moins bien noté est « `r synthese$produit[1]` », avec une note moyenne de `r round(synthese$note_moyenne[1], 2)`/5 et `r round(100 * synthese$part_negatifs[1])` % d'avis négatifs. Le mot négatif le plus cité est « `r synthese$mot_negatif[1]` », un comble pour une veste censée être légère, ce qui suggère de revoir son poids. À l'inverse, « `r synthese$produit[nrow(synthese)]` » obtient la meilleure note (`r round(synthese$note_moyenne[nrow(synthese)], 2)`/5, seulement `r round(100 * synthese$part_negatifs[nrow(synthese)])` % d'avis négatifs). Son principal reproche est d'être « `r synthese$mot_negatif[nrow(synthese)]` », ce qui en fait un produit à mettre en avant.
